@@ -1,0 +1,9 @@
+{
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "css.lint.boxModel": "warning",
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+    "ayat.repeatedEveryMinute": 20
+}

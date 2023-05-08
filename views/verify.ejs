@@ -1,0 +1,13 @@
+<%- include('parts/header')  %>
+<%- include('parts/navbar')  %>
+
+
+	<h1>Order Verification Page</h1>
+	<form method="post" action="/orders">
+		<label for="address">Address:</label>
+		<input type="text" id="address" name="address" required>
+		
+		<input type="submit" name="btn btn-success" value="Submit Order"   formaction="/orders">
+	</form>
+
+	<%- include('parts/footer')  %>

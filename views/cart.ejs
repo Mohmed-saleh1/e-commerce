@@ -1,0 +1,53 @@
+<%- include('parts/header') %>
+    <%- include('parts/navbar') %>
+
+        <div class="container">
+            <br>    
+            <% if(items.length===0){ %>
+                <p class="alert alert-danger"> there is no items </p>
+                <% } else { %>
+                    <table>
+
+                        <head>
+                             <th>No</th>
+                             <th>Product name</th>
+                             <th>Price</th>
+                             <th>Amount</th>
+                             <th>Total</th>
+                        </head>
+                        <% for( let i = 0; i < items.length; i++ ) { %>
+                        <tr>
+                         <td><%= i+1 %></td>
+                         <td><%= items[i].name %></td>
+                         <td><%= items[i].price %>$</td>
+
+                         <form  method="post">
+                            <td><input type="text" name="amount" class="form-control" value="<%= items[i].amount %>"></td>
+                            <td><%= items[i].price * items[i].amount %>$</td>
+                            <td>
+                                <input type="hidden" name="cartId" value="<%= items[i]._id %>">
+                                <input type="submit" name="btn btn-success" value="Save"   formaction="/cart/Save">
+                                <input type="submit" name="btn btn-success" value="Order"   formaction="/cart/verify">
+                                <input type="submit" class="btn btn-danger" value="Delete" formaction="/cart/delete">
+                            </td>
+                         </form>
+                        </tr>
+                    <% } %>
+
+                    </table>
+                    <% } %>
+                    <br>
+                    <% if(items.length!=0){ %>
+                        <form method="post">
+                            <input  type="submit" class="btn btn-danger" value="Delete All" formaction="/cart/deleteAll">
+                        </form>
+                        
+                    <% } %>
+
+
+                    <% if (validationErrors) { %>
+                        <p class="alert alert-danger">
+                          <%= validationErrors.msg %>
+                        </p>
+                      <% } %>                        
+        </div>
